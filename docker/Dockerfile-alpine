@@ -5,4 +5,5 @@ RUN xcaddy build --with github.com/caddy-dns/cloudflare
 
 FROM caddy:${CADDY_VERSION}-alpine
 ARG TARGETARCH
+RUN apk add --no-cache ca-certificates bash
 COPY --from=builder /usr/bin/caddy /usr/bin/caddy
